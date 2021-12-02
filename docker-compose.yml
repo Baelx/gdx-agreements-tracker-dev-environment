@@ -4,7 +4,12 @@ services:
     build: ./gdx-agreements-tracker-api
     ports:
       - "8080:8080"
+    volumes:
+      - ./gdx-agreements-tracker-api/src:/usr/src/app/src
   gdx-agreements-tracker-front-end:
     build: ./gdx-agreements-tracker-front-end
     ports:
       - "8081:80"
+    volumes:
+      - ./gdx-agreements-tracker-front-end/src:/usr/src/app/src
+      - ./gdx-agreements-tracker-front-end/public:/usr/src/app/public

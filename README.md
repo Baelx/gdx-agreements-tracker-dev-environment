@@ -1,7 +1,7 @@
 # GDX Agreements Tracker Development Environment
 
 Sets up a development environment for the GDX Agreements Tracker. This utility strives not to modify the contents of the underlying repositories but simply to set up a dockerized development environment
-around them.
+around them. It is thus meant to be a standalone repository that you use with the two GDX Agreement tracker repositories.
 
 ## Installation
 
@@ -24,3 +24,9 @@ The front end app should be available at http://localhost:8081
 
 The API should be available at https://localhost:8080
 
+## To do
+
+- Get nicer logs for development
+- Run each app in development mode, not production mode
+- Make sure volumes are being mounted(currently not updating upon local file change)
+- Make sure services can talk to each other

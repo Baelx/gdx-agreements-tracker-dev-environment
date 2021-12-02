@@ -26,11 +26,11 @@ set_up_environment_variables() {
         format_status_message "COMPLETE" $SUCCESS_GREEN
     else
         # Throw errors if there are issues getting the env vars.
-        if [ ]
+        if [ ! $GDX_AGREEMENTS_TRACKER_API_DIR ] || [ ! $GDX_AGREEMENTS_TRACKER_FRONT_END_DIR ]
         then
-            format_status_message "ERROR. Couldn't parse agreement tracker API or Front-end locations. Environment variables appear empty." $ERROR_RED
+            format_status_message "ERROR. Couldn't parse repository paths. One or more environment variables appear empty." $ERROR_RED
         else
-            format_status_message "ERROR. Couldn't parse agreement tracker API or Front-end locations. Did you provide an .env file with absolute paths for these repositores?" $ERROR_RED
+            format_status_message "ERROR. Couldn't parse repository paths. Did you provide an .env file with absolute paths for these repositores?" $ERROR_RED
         fi
         exit 1
     fi
@@ -43,8 +43,8 @@ set_up_symlinks() {
     then
         printf "Symlinks already in place.\n"
     else
-        ln -s $GDX_AGREEMENT_TRACKERS_API_DIR gdx-agreements-tracker-api
-        ln -s $GDX_AGREEMENT_TRACKERS_FRONT_END_DIR gdx-agreements-tracker-front-end
+        ln -s $GDX_AGREEMENTS_TRACKER_API_DIR gdx-agreements-tracker-api
+        ln -s $GDX_AGREEMENTS_TRACKER_FRONT_END_DIR gdx-agreements-tracker-front-end
         printf "Symlinks created.\n"
     fi
     format_status_message "COMPLETE" $SUCCESS_GREEN
