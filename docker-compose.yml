@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  gdx-agreements-tracker-api:
+    build: ./gdx-agreements-tracker-api
+    ports:
+      - "8080:8080"
+  gdx-agreements-tracker-front-end:
+    build: ./gdx-agreements-tracker-front-end
+    ports:
+      - "8081:80"
